@@ -20,12 +20,8 @@ public class EmployeeServiceController {
     @GetMapping("/add")
     public Employee addEmployee(@RequestParam("fname") String firstName, @RequestParam("lname") String lastName) {
         Employee d=null;
-        try {
-            d=employeeService.addEmployee(firstName, lastName);
-        }catch(EmployeeAlreadyAddedException e) {
-           e.printStackTrace();
-           System.out.println("<b>EmployeeAlreadyAdded");
-        }
+        d=employeeService.addEmployee(firstName, lastName);
+
         return d;
 
     }
@@ -33,24 +29,16 @@ public class EmployeeServiceController {
     @GetMapping("/remove")
     public Employee removeEmployee(@RequestParam("fname") String firstName, @RequestParam("lname") String lastName){
         Employee d=null;
-        try {
-            d=employeeService.removeEmployee(firstName,lastName);
-        }catch(EmployeeAlreadyAddedException e) {
-            e.printStackTrace();
-            System.out.println("<b>EmployeeNotFound");
-        }
+        d=employeeService.removeEmployee(firstName,lastName);
+
         return d;
     }
 
     @GetMapping("/find")
     public Employee findEmployee(@RequestParam("fname") String firstName, @RequestParam("lname") String lastName) {
         Employee d=null;
-        try {
-            d=employeeService.findEmployee(firstName,lastName);
-        }catch(EmployeeAlreadyAddedException e) {
-            e.printStackTrace();
-            System.out.println("<b>EmployeeNotFound");
-        }
+        d=employeeService.findEmployee(firstName,lastName);
+
         return d;
     }
     @GetMapping("/list")
